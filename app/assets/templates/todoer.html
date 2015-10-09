@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row" ng-repeat="row in (projectsCtrl.projects.length/3 | chunk)">
+        <div class="col-lg-4 pt centered mt" ng-repeat="project in projectsCtrl.projects.slice(3*$index, 3*$index+3)">
+            <project ng-controller="projectController as projectCtrl"></project>
+        </div>
+    </div><!-- row -->
+    <create-project></create-project>
+</div><!-- /container -->

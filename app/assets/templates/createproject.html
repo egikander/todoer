@@ -1,0 +1,21 @@
+<div class="col-lg-4 pt centered">
+    <div class="project new-project">
+        <div class="project-head">
+            <span>Create project</span>
+        </div>
+        <form ng-submit="projectsCtrl.createProject(projectsCtrl.newProjectName)" novalidate>
+            <div class="form-group">
+                <input type="text"
+                        placeholder="Project name"
+                        ng-model="projectsCtrl.newProjectName"
+                >
+                <div class="add-btn center-block">
+                    <button type="submit"
+                            class="btn btn-success btn-lg btn-block">
+                        Create
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

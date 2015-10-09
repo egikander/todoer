@@ -1,0 +1,49 @@
+<div class="project">
+    <div class="project-head">
+        <div>{{::project.name}}</div>
+        <span confirm-remove="projectCtrl.removeProject(project.id)"
+              class="glyphicon glyphicon-remove-circle del-project pull-right"
+              aria-hidden="true">
+        </span>
+    </div>
+    <div class="tasks form-group">
+        <div class="center-block task no-select"
+              ng-repeat="task in projectCtrl.getTasks(project.id) track by $index"
+              ng-controller="taskController as taskCtrl">
+            <div ng-show="!taskCtrl.isEditingTask">
+                <div ng-class="{'task-done': task.done}"
+                     ng-click="taskCtrl.editTask(task)"
+                     class="task-content">
+                     {{task.description}}
+                </div>
+                <div class="task-controls">
+                    <span ng-click="taskCtrl.taskDone(task)"
+                          class="glyphicon glyphicon-ok task-control"
+                          aria-hidden="true">
+                    </span>
+                    <span confirm-remove="taskCtrl.removeTask(task)"
+                          class="glyphicon glyphicon-remove-circle task-control"
+                          aria-hidden="true">
+                    </span>
+                </div>
+            </div>
+            <div ng-show="taskCtrl.isEditingTask">
+                <form ng-submit="taskCtrl.updateTask()" novalidate>
+                    <input type="text"
+                           focus-if="taskCtrl.isEditingTask"
+                           close-editing is-editing="taskCtrl.isEditingTask"
+                           ng-model="taskCtrl.editingTask.description">
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="add-btn center-block">
+        <form ng-submit="projectCtrl.addTask(project.id, projectCtrl.taskDescription)">
+            <div class="form-group">
+                <input type="text" ng-model="projectCtrl.taskDescription" placeholder="New task">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Add task</button>
+            </div>
+        </form>
+    </div>
+</div>
