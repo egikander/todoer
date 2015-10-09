@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start tests/karma-conf.js --single-run",
-    "start": "http-server ./build -a localhost -p 8080"
+    "start": "gulp && http-server ./build -a localhost -p 8080"
   },
   "author": "Iuzhakov Andrey <egikander@gmail.com>",
   "license": "MIT",

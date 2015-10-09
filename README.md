@@ -9,3 +9,6 @@ For using it:
 3. Run `npm install`
 
 After that you can start the application `npm start`, it will be available by address [http://localhost:8080](http://localhost:8080)
+
+Screenshot:
+![](https://github.com/egikander/todoer/raw/master/screenshots/screenshot.png)
